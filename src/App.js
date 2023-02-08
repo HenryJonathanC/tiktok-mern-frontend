@@ -6,7 +6,7 @@ function App() {
   const [videos, setVideos] = useState([])
   useEffect(()=>{
     const fetchData = async ()=>{
-      const res= await axios.get('http://localhost:9000/v2/posts')
+      const res= await axios.get('https://tiktok-mern-backend.adaptable.app/v2/posts')
       setVideos(res.data)
       return res
     }
@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <div className='app__videos'>
-        { videos.map(({url, channel, description, song, likes, shares, messages})=>(
-          <Video key={url} url={url} channel={channel} description={description} song={song} likes={likes} shares={shares} messages={messages}/>
+        { videos.map(({_id, url, channel, description, song, likes, shares, messages})=>(
+          <Video key={_id} url={url} channel={channel} description={description} song={song} likes={likes} shares={shares} messages={messages}/>
         ))}
       </div>
     </div>
